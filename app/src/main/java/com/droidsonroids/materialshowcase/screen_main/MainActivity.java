@@ -6,21 +6,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Debug;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
-import butterknife.Bind;
-import butterknife.ButterKnife;
+
 import com.droidsonroids.materialshowcase.R;
 import com.droidsonroids.materialshowcase.data.entities.GithubRepo;
 import com.droidsonroids.materialshowcase.screen_contact.ContactActivity;
 
 import java.util.List;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -68,7 +66,6 @@ public class MainActivity extends Activity implements MainView, AppBarLayout.OnO
 	public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
 		int maxScroll = mAppBarLayout.getTotalScrollRange();
 		float percentage = (float) Math.abs(i) / (float)maxScroll;
-		//TODO: C'mon Android Team, do the magic here!
 	}
 
 	@OnClick(R.id.fab)
@@ -76,10 +73,10 @@ public class MainActivity extends Activity implements MainView, AppBarLayout.OnO
 		startContactActivity();
 	}
 
-	private void startContactActivity() {
+    // TODO: 8/22/16 1 - start with transition in android lollipop
+    private void startContactActivity() {
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-			ActivityOptions options =
-					ActivityOptions.makeSceneTransitionAnimation(this, mFab, mFab.getTransitionName());
+			ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, mFab, mFab.getTransitionName());
 			startActivity(new Intent(this, ContactActivity.class), options.toBundle());
 		} else {
 			startActivity(new Intent(this, ContactActivity.class));
