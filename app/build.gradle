@@ -3,13 +3,13 @@ apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-  compileSdkVersion 23
-  buildToolsVersion "23.0.1"
+  compileSdkVersion 24
+  buildToolsVersion "24"
 
   defaultConfig {
     applicationId "com.droidsonroids.materialshowcase"
     minSdkVersion 21
-    targetSdkVersion 23
+    targetSdkVersion 24
     versionCode 1
     versionName "1.0"
   }
